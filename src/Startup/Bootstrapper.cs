@@ -2,16 +2,16 @@
 using System.IO;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Common;
+using Common.Configuration;
 using Services;
 
 namespace Startup
 {
-	internal static class Bootstrapper
+    internal static class Bootstrapper
 	{
 		public static IServiceProvider ConfigureServices()
 		{
-			IConfiguration configuration = CreateConfiguration();
+			var configuration = CreateConfiguration();
 			IServiceCollection services = new ServiceCollection();
 
 			services
@@ -37,13 +37,11 @@ namespace Startup
 			return services;
 		}
 
-		private static IConfiguration CreateConfiguration()
-		{
-			return new ConfigurationBuilder()
-				.SetBasePath(Directory.GetCurrentDirectory())
-				.AddJsonFile("appsettings.json", true, true)
-				.AddEnvironmentVariables()
-				.Build();
-		}
-	}
+		private static IConfiguration CreateConfiguration() =>
+            new ConfigurationBuilder()
+                .SetBasePath(Directory.GetCurrentDirectory())
+                .AddJsonFile("appsettings.json", true, true)
+                .AddEnvironmentVariables()
+                .Build();
+    }
 }

@@ -8,17 +8,11 @@ namespace Common
 		private static readonly object LockObject;
 		private static IServiceProvider _serviceProvider;
 
-		static Ioc()
-		{
-			LockObject = new object();
-		}
+		static Ioc() => LockObject = new object();
 
-		public static T Get<T>()
-		{
-			return _serviceProvider.GetRequiredService<T>();
-		}
+        public static T Get<T>() => _serviceProvider.GetRequiredService<T>();
 
-		public static void Init(IServiceProvider serviceProvider)
+        public static void Init(IServiceProvider serviceProvider)
 		{
 			if (_serviceProvider != null)
 			{

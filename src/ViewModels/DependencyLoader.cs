@@ -6,9 +6,6 @@ namespace ViewModels
 {
 	public sealed class DependencyLoader : IDependencyLoader
 	{
-		public void Load(IServiceCollection services)
-		{
-			services.AddTransient<IMainWindowModel, MainWindowModel>();
-		}
-	}
+		public void Load(IServiceCollection services) => services.AddTransient<IMainWindowModel, MainWindowModel>();
+    }
 }

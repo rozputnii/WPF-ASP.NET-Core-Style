@@ -1,12 +1,12 @@
 ﻿using System.Windows.Input;
 using Microsoft.Extensions.Options;
 using Services;
-using Common;
+using Common.Configuration;
 using ViewModels.Base;
 
 namespace ViewModels.Default
 {
-	internal sealed class MainWindowModel : BaseViewModel, IMainWindowModel
+    internal sealed class MainWindowModel : BaseViewModel, IMainWindowModel
 	{
 		private readonly ISomeService someService;
 		private string name;
@@ -28,9 +28,6 @@ namespace ViewModels.Default
 
 		public ICommand Change { get; }
 
-		private void ChangeAction()
-		{
-			Name = someService.GetName();
-		}
-	}
+		private void ChangeAction() => Name = someService.GetName();
+    }
 }

@@ -6,9 +6,6 @@ namespace Services
 {
 	public sealed class DependencyLoader : IDependencyLoader
 	{
-		public void Load(IServiceCollection services)
-		{
-			services.AddTransient<ISomeService, SomeService>();
-		}
-	}
+		public void Load(IServiceCollection services) => services.AddTransient<ISomeService, SomeService>();
+    }
 }

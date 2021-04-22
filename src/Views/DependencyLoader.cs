@@ -5,9 +5,6 @@ namespace Views
 {
 	public sealed class DependencyLoader : IDependencyLoader
 	{
-		public void Load(IServiceCollection services)
-		{
-			services.AddSingleton<MainWindow>();
-		}
-	}
+		public void Load(IServiceCollection services) => services.AddSingleton<MainWindow>();
+    }
 }

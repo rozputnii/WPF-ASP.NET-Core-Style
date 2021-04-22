@@ -4,9 +4,6 @@ namespace Services.Default
 {
 	internal sealed class SomeService : ISomeService
 	{
-		public string GetName()
-		{
-			return Guid.NewGuid().ToString();
-		}
-	}
+		public string GetName() => Guid.NewGuid().ToString();
+    }
 }
